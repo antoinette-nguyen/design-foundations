@@ -1,0 +1,80 @@
+/* ================================
+   DESIGN FOUNDATIONS — style.css
+   ================================ */
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base */
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background: #fff;
+}
+
+/* Nav */
+nav {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Hero */
+.hero {
+  padding: 5rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: #555;
+}
+
+/* Projects */
+.projects {
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.projects h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #888;
+  border-top: 1px solid #eee;
+}
