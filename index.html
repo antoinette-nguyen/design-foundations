@@ -8,22 +8,37 @@
   </head>
   <body>
     <header>
-      <nav>
-        <span class="logo">antoinette</span>
+      <nav class="nav--flex">
+        <a href="index.html" class="logo">antoinette</a>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Work</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <h1>Design Foundations</h1>
-        <p>A portfolio of HTML, CSS, and design fundamentals built over 9 months.</p>
+        <p class="hero__label">Design Foundations — Month 1</p>
+        <h1>Building the base.<br />One commit at a time.</h1>
+        <p class="hero__sub">UI/UX meets frontend. This is where I learn to build what I design.</p>
+        <a href="about.html" class="hero__cta">About me &rarr;</a>
       </section>
 
       <section class="projects">
         <h2>Projects</h2>
         <div class="project-grid">
-          <!-- Projects will be added here -->
-          <p class="placeholder">Projects coming soon.</p>
+          <!-- Projects will be added as they're built -->
+          <div class="project-card project-card--placeholder">
+            <div class="project-card__tag">Coming — Week 3</div>
+            <h3>Design Token System</h3>
+            <p>A color, spacing, and typography token system built in CSS custom properties.</p>
+          </div>
+          <div class="project-card project-card--placeholder">
+            <div class="project-card__tag">Coming — Week 4</div>
+            <h3>Portfolio V1</h3>
+            <p>A single-page static portfolio using the token system and CSS Grid.</p>
+          </div>
         </div>
       </section>
     </main>
