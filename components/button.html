@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component — Button</title>
+    <style>
+      :root {
+        --color-text: #111;
+        --color-bg: #fff;
+        --color-border: #d4d4d4;
+        --color-accent: #111;
+        --color-accent-hover: #333;
+
+        --radius-sm: 6px;
+        --radius-md: 10px;
+
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+
+        --duration-fast: 150ms;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #f4f4f4;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        padding: 2rem;
+      }
+
+      .group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #999;
+        width: 80px;
+        flex-shrink: 0;
+      }
+
+      /* ── Base button ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+        font-family: inherit;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        border: none;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        text-decoration: none;
+        transition: background var(--duration-fast) ease,
+                    color var(--duration-fast) ease,
+                    box-shadow var(--duration-fast) ease,
+                    opacity var(--duration-fast) ease;
+        white-space: nowrap;
+      }
+
+      .btn:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+      }
+
+      /* ── Sizes ── */
+      .btn--sm {
+        font-size: 0.8125rem;
+        padding: var(--space-2) var(--space-3);
+      }
+
+      .btn--md {
+        font-size: 0.9375rem;
+        padding: var(--space-3) var(--space-4);
+      }
+
+      .btn--lg {
+        font-size: 1rem;
+        padding: var(--space-4) var(--space-5);
+      }
+
+      /* ── Variants ── */
+      .btn--primary {
+        background: var(--color-accent);
+        color: #fff;
+      }
+
+      .btn--primary:hover {
+        background: var(--color-accent-hover);
+      }
+
+      .btn--secondary {
+        background: var(--color-bg);
+        color: var(--color-text);
+        border: 1.5px solid var(--color-border);
+      }
+
+      .btn--secondary:hover {
+        border-color: #aaa;
+        background: #fafafa;
+      }
+
+      .btn--ghost {
+        background: transparent;
+        color: var(--color-text);
+      }
+
+      .btn--ghost:hover {
+        background: rgba(0,0,0,0.05);
+      }
+
+      /* ── Disabled ── */
+      .btn:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Variants -->
+    <div class="group">
+      <span class="label">Variants</span>
+      <button class="btn btn--primary btn--md">Primary</button>
+      <button class="btn btn--secondary btn--md">Secondary</button>
+      <button class="btn btn--ghost btn--md">Ghost</button>
+    </div>
+
+    <!-- Sizes -->
+    <div class="group">
+      <span class="label">Sizes</span>
+      <button class="btn btn--primary btn--sm">Small</button>
+      <button class="btn btn--primary btn--md">Medium</button>
+      <button class="btn btn--primary btn--lg">Large</button>
+    </div>
+
+    <!-- Disabled -->
+    <div class="group">
+      <span class="label">Disabled</span>
+      <button class="btn btn--primary btn--md" disabled>Primary</button>
+      <button class="btn btn--secondary btn--md" disabled>Secondary</button>
+      <button class="btn btn--ghost btn--md" disabled>Ghost</button>
+    </div>
+
+  </body>
+</html>
