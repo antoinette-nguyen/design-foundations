@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component — Footer</title>
+    <style>
+      :root {
+        --color-bg: #fff;
+        --color-text: #111;
+        --color-text-muted: #888;
+        --color-border: #eee;
+        --color-link-hover: #111;
+
+        --space-2: 8px;
+        --space-4: 16px;
+        --space-6: 24px;
+        --space-8: 32px;
+
+        --duration-fast: 150ms;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #f0f0f0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 100vh;
+      }
+
+      /* ── Footer ── */
+      .footer {
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-border);
+        border-radius: 16px;
+        padding: var(--space-8) 3rem;
+      }
+
+      .footer__inner {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .footer__top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+        padding-bottom: var(--space-8);
+        border-bottom: 1px solid var(--color-border);
+        margin-bottom: var(--space-6);
+      }
+
+      /* Brand */
+      .footer__brand-name {
+        font-size: 1.0625rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        color: var(--color-text);
+        margin-bottom: var(--space-2);
+      }
+
+      .footer__brand-tagline {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        line-height: 1.6;
+        max-width: 32ch;
+      }
+
+      /* Nav groups */
+      .footer__nav {
+        display: flex;
+        gap: 3rem;
+      }
+
+      .footer__nav-group h4 {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #bbb;
+        margin-bottom: var(--space-4);
+      }
+
+      .footer__nav-group ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+
+      .footer__nav-group a {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color var(--duration-fast);
+      }
+
+      .footer__nav-group a:hover {
+        color: var(--color-link-hover);
+      }
+
+      /* Bottom bar */
+      .footer__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer__copy {
+        font-size: 0.8125rem;
+        color: var(--color-text-muted);
+      }
+
+      .footer__back-top {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        transition: color var(--duration-fast);
+      }
+
+      .footer__back-top:hover { color: var(--color-text); }
+
+      @media (max-width: 600px) {
+        .footer__top {
+          grid-template-columns: 1fr;
+        }
+
+        .footer__nav {
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <footer class="footer">
+      <div class="footer__inner">
+
+        <div class="footer__top">
+          <div class="footer__brand">
+            <p class="footer__brand-name">antoinette</p>
+            <p class="footer__brand-tagline">Designer learning to build. Shipping in public, one commit at a time.</p>
+          </div>
+
+          <nav class="footer__nav" aria-label="Footer navigation">
+            <div class="footer__nav-group">
+              <h4>Work</h4>
+              <ul>
+                <li><a href="#">All projects</a></li>
+                <li><a href="#">Case studies</a></li>
+                <li><a href="#">Design system</a></li>
+              </ul>
+            </div>
+            <div class="footer__nav-group">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copy">&copy; 2026 Antoinette Nguyen &mdash; built in public</p>
+          <a href="#" class="footer__back-top">Back to top &uarr;</a>
+        </div>
+
+      </div>
+    </footer>
+
+  </body>
+</html>
