@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component — Nav Bar</title>
+    <style>
+      :root {
+        --color-bg: #fff;
+        --color-text: #111;
+        --color-text-muted: #666;
+        --color-border: #eee;
+        --color-accent: #111;
+
+        --radius-md: 10px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --duration-fast: 150ms;
+        --duration-base: 250ms;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #f4f4f4;
+        padding: 2rem;
+      }
+
+      .demo-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 0.75rem;
+      }
+
+      .demo-box {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        border: 1px solid #e8e8e8;
+      }
+
+      /* ── Navbar ── */
+      .navbar {
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        padding: 0 2rem;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+
+      .navbar__logo {
+        font-weight: 800;
+        font-size: 1rem;
+        letter-spacing: -0.04em;
+        color: var(--color-text);
+        text-decoration: none;
+      }
+
+      .navbar__links {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .navbar__links a {
+        font-size: 0.875rem;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        transition: color var(--duration-fast);
+      }
+
+      .navbar__links a:hover,
+      .navbar__links a.active {
+        color: var(--color-text);
+      }
+
+      .navbar__cta {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: #fff;
+        background: var(--color-accent);
+        padding: 8px var(--space-4);
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        transition: opacity var(--duration-fast);
+      }
+
+      .navbar__cta:hover { opacity: 0.75; }
+
+      /* ── Hamburger (mobile) ── */
+      .navbar__hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .navbar__hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--color-text);
+        border-radius: 2px;
+        transition: transform var(--duration-base) ease, opacity var(--duration-base) ease;
+      }
+
+      /* open state */
+      .navbar__hamburger[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .navbar__hamburger[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+      .navbar__hamburger[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* ── Mobile menu ── */
+      .navbar__mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-border);
+        padding: 0.5rem 0;
+      }
+
+      .navbar__mobile-menu.open {
+        display: flex;
+      }
+
+      .navbar__mobile-menu a {
+        font-size: 0.9375rem;
+        color: var(--color-text-muted);
+        text-decoration: none;
+        padding: 0.75rem 2rem;
+        transition: background var(--duration-fast), color var(--duration-fast);
+      }
+
+      .navbar__mobile-menu a:hover {
+        background: #f5f5f5;
+        color: var(--color-text);
+      }
+
+      @media (max-width: 600px) {
+        .navbar__links,
+        .navbar__cta { display: none; }
+        .navbar__hamburger { display: flex; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <p class="demo-label">Default</p>
+    <div class="demo-box">
+      <nav class="navbar" id="navbar">
+        <a href="#" class="navbar__logo">antoinette</a>
+        <ul class="navbar__links">
+          <li><a href="#" class="active">Work</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <a href="#" class="navbar__cta">Say hello</a>
+        <button
+          class="navbar__hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMenu(this)"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="navbar__mobile-menu" id="mobile-menu">
+        <a href="#">Work</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Say hello</a>
+      </div>
+    </div>
+
+    <script>
+      function toggleMenu(btn) {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isOpen);
+        document.getElementById('mobile-menu').classList.toggle('open', !isOpen);
+      }
+    </script>
+
+  </body>
+</html>
