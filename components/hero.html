@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Component — Hero Section</title>
+    <style>
+      :root {
+        --color-bg: #fff;
+        --color-text: #111;
+        --color-text-muted: #666;
+        --color-border: #e8e8e8;
+        --color-accent: #111;
+        --color-surface: #f7f7f7;
+
+        --radius-md: 10px;
+        --radius-full: 999px;
+
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-6: 24px;
+
+        --duration-fast: 150ms;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #f0f0f0;
+        padding: 2rem;
+      }
+
+      /* ── Hero ── */
+      .hero {
+        background: var(--color-bg);
+        border-radius: 16px;
+        border: 1px solid var(--color-border);
+        padding: 6rem 4rem;
+        max-width: 860px;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-6);
+      }
+
+      /* Badge */
+      .hero__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #777;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        padding: 6px var(--space-3);
+        border-radius: var(--radius-full);
+      }
+
+      .hero__badge::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: #22c55e;
+        border-radius: 50%;
+      }
+
+      /* Headline */
+      .hero__title {
+        font-size: clamp(2.25rem, 6vw, 4.5rem);
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+        color: var(--color-text);
+        max-width: 16ch;
+      }
+
+      /* Sub */
+      .hero__sub {
+        font-size: clamp(1rem, 2vw, 1.125rem);
+        color: var(--color-text-muted);
+        line-height: 1.7;
+        max-width: 52ch;
+      }
+
+      /* CTAs */
+      .hero__actions {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-family: inherit;
+        font-size: 0.9375rem;
+        font-weight: 600;
+        padding: var(--space-3) var(--space-6);
+        border-radius: var(--radius-md);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        transition: opacity var(--duration-fast), background var(--duration-fast);
+      }
+
+      .btn--primary {
+        background: var(--color-accent);
+        color: #fff;
+      }
+
+      .btn--primary:hover { opacity: 0.75; }
+
+      .btn--secondary {
+        background: var(--color-surface);
+        color: var(--color-text);
+        border: 1px solid var(--color-border);
+      }
+
+      .btn--secondary:hover { background: #efefef; }
+
+      /* Social proof strip */
+      .hero__proof {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        font-size: 0.8125rem;
+        color: #aaa;
+      }
+
+      .hero__proof-avatars {
+        display: flex;
+      }
+
+      .hero__proof-avatars span {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #ddd;
+        border: 2px solid #fff;
+        display: block;
+        margin-left: -8px;
+        font-size: 0.625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-weight: 700;
+      }
+
+      .hero__proof-avatars span:first-child { margin-left: 0; }
+
+      @media (max-width: 600px) {
+        .hero { padding: 3.5rem 1.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <section class="hero">
+      <div class="hero__badge">Available for freelance work</div>
+
+      <h1 class="hero__title">Design that ships. Code that works.</h1>
+
+      <p class="hero__sub">
+        I'm a UI/UX designer learning to build what I design.
+        Focused on design systems, interactive interfaces, and
+        shipping work that's both beautiful and accessible.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#" class="btn btn--primary">View my work &rarr;</a>
+        <a href="#" class="btn btn--secondary">About me</a>
+      </div>
+
+      <div class="hero__proof">
+        <div class="hero__proof-avatars">
+          <span>A</span><span>B</span><span>C</span>
+        </div>
+        Building in public · 9-month plan · 0 days missed
+      </div>
+    </section>
+
+  </body>
+</html>
